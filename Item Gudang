@@ -1,0 +1,60 @@
+internal class Program
+{
+
+static int[,] itemgudang = new int[2,3];
+static void MasukanNilai()
+{
+ for (int i = 0; i < itemgudang.GetLength(0);i++)
+ {
+  for (int j = 0; j < itemgudang.GetLength(1);j++)
+  {
+    Console.Write($"Masukkan Nilai pada barang {i+1} dan gudang {j+1} = ");
+    itemgudang[i,j] = Convert.ToInt32(Console.ReadLine());
+  }
+ }
+}
+
+ static void MasukanNilaiTotal()
+{
+ 
+ for (int i = 0; i < itemgudang.GetLength(0);i++)
+ {
+    int total = 0;
+  for (int j = 0; j < itemgudang.GetLength(1);j++)
+  {
+    Console.WriteLine($"Jumlah pada barang {i+1} dan gudang {j+1} = {itemgudang[i,j]} ");
+    total += itemgudang [i,j];
+  }
+  Console.WriteLine($"Total = {total}");
+ } 
+}
+
+    private static void Main(string[] args)
+    {
+     Console.WriteLine("=== MENU ===");
+     Console.WriteLine("1. Masukkan");
+     Console.WriteLine("2. Keluaran");
+     Console.WriteLine("3. Keluar");
+     while (true)
+     {
+     Console.Write("Masukkan Pilihan : ");
+     int pilihan = Convert.ToInt32(Console.ReadLine());
+     switch (pilihan)
+     {
+        case 1:
+        MasukanNilai();
+        break;
+        case 2:
+        MasukanNilaiTotal();
+        break;
+        case 3:
+        Console.WriteLine(" Terimakasih sudah menggunakan");
+        return;
+        default:
+        Console.WriteLine("Salah Inputan");
+        continue;
+     }
+     }
+    }
+ 
+}
